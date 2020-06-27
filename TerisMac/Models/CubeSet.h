@@ -21,17 +21,14 @@ typedef enum : NSUInteger {
 
 @interface CubeSet : NSObject
 @property (nonatomic, strong) Vector2* oriPos;
-- (instancetype)initWithShapes:(Vec2Arrays)shapes Side:(int)side;
+- (instancetype)initWithShapes:(NSArray*)shapes;
 -(NSView*)createCubeView:(NSRect)rect OriginPos:(Vector2*)ori;
--(Vec2Array)nextShape;
--(Vec2Array)curShape;
--(NSInteger)nextShapeIndex;
+-(NSArray*)getPointsAfterRotate;
+-(NSArray*)getPointsAfterMove:(Vector2*)offset;
 -(void)shapeChange;
--(void)moveDown;
--(void)moveLeft;
--(void)moveRight;
--(Vec2Array)getPointsAfterMove:(Vector2*)offset;
 -(NSView*)releaseCubes;
+-(void)doMove:(Vector2*)offset;
+-(NSArray*)getContainerPoints:(NSArray*)points;
 @end
 
 NS_ASSUME_NONNULL_END

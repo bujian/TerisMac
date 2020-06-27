@@ -9,7 +9,6 @@
 #import "Container.h"
 #import "Vector2.h"
 #import "CubeSet.h"
-#import "CubeView.h"
 #import "NSView+Frame.h"
 
 @interface Container()
@@ -32,7 +31,7 @@ typedef NSMutableArray<NSMutableArray*>* StateArrays;
         _xMax = 10;
         _yMax = 18;
         _states = [NSMutableArray array];
-        for (int i = 0; i < _yMax; i++) {
+        for (int i = 0; i < _yMax + EMPTY_ROW_COUNT; i++) {
             NSMutableArray* subArray = [NSMutableArray array];
             for (int j = 0; j < _xMax; j++) {
                 [subArray addObject: @""];
@@ -61,21 +60,7 @@ typedef NSMutableArray<NSMutableArray*>* StateArrays;
     return hasEmpty;
 }
 
--(void)CheckLines:(NSArray*)lines{
-    NSMutableArray* linesNeedToRemove = [NSMutableArray array];
-    for (int i = 0; i < lines.count; i++) {
-        NSNumber* num = lines[i];
-        bool hasEmpty = [self CheckIfLineHasEmptyPlace:num.intValue];
-        if(!hasEmpty)
-        {
-            [linesNeedToRemove addObject:num];
-        }
-    }
-    
-    if(linesNeedToRemove.count == 0) return;
-    [linesNeedToRemove sortedArrayUsingSelector:@selector(compare:)];
-    //消行
-    [self removeLines:linesNeedToRemove];
+- (void)moveOtherLinesAfterRemoveLines:(NSMutableArray *)linesNeedToRemove {
     int min = [linesNeedToRemove[0] intValue];
     for (int i = min + 1; i < _yMax; i++) {
         int moveCount = 0;
@@ -91,7 +76,34 @@ typedef NSMutableArray<NSMutableArray*>* StateArrays;
         }
         [self lineMove:i moveLineCount:moveCount];
     }
+}
 
+-(void)checkLinesNeededToRemove:(NSArray*)lines{
+    NSMutableArray* linesNeedToRemove = [NSMutableArray array];
+    for (int i = 0; i < lines.count; i++) {
+        NSNumber* num = lines[i];
+        bool hasEmpty = [self CheckIfLineHasEmptyPlace:num.intValue];
+        if(!hasEmpty)
+        {
+            [linesNeedToRemove addObject:num];
+        }
+    }
+    if(linesNeedToRemove.count == 0) return;
+    [linesNeedToRemove sortedArrayUsingSelector:@selector(compare:)];
+    //消行
+    [self removeLines:linesNeedToRemove];
+    //移动
+    [self moveOtherLinesAfterRemoveLines:linesNeedToRemove];
+}
+
+- (bool)checkLinesOverContainer{
+    bool ret = false;
+    for (int i = 0; i < _xMax; i++) {
+        if(![_states[_yMax][i] isEqual:@""]){
+            ret = true;
+        }
+    }
+    return ret;
 }
 
 -(void)removeLine:(int)lineNum{
@@ -105,7 +117,7 @@ typedef NSMutableArray<NSMutableArray*>* StateArrays;
 
 }
 
--(bool)canRotate:(Vec2Array)positions{
+-(bool)canRotate:(NSArray*)positions{
     bool ret = true;
     for (int i = 0; i < positions.count; i++) {
         Vector2* pos = positions[i];
@@ -128,7 +140,7 @@ typedef NSMutableArray<NSMutableArray*>* StateArrays;
     return ret;
 }
 
--(bool)canMove:(Vec2Array)postions{
+-(bool)canMove:(NSArray*)postions{
     return [self canRotate:postions];
 }
 
@@ -170,6 +182,30 @@ typedef NSMutableArray<NSMutableArray*>* StateArrays;
         _states[lineIndex][i] = @"";
     }
 }
+
+-(void)disableContainer{
+    for (int i = 0; i < _states.count; i++) {
+        for (int j = 0; j < _states[i].count; j++) {
+            CubeView* cube = _states[i][j];
+            if(![cube isEqual:@""]){
+                [cube setViewBackgrounImage:@"red"];
+            }
+        }
+    }
+}
+
+-(void)clearContainer{
+    for (int i = 0; i < _states.count; i++) {
+        for (int j = 0; j < _states[i].count; j++) {
+            CubeView* cube = _states[i][j];
+            if(![cube isEqual:@""]){
+                [cube removeFromSuperview];
+                _states[i][j] = @"";
+            }
+        }
+    }
+}
+
 
 - (Vector2 *)size{
     return [[Vector2 alloc]initWith:_xMax and:_yMax];

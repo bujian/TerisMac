@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:SecondPro.xcodeproj">
+      location = "self:/Users/mac/bujian/TerisMac/TerisMac.xcodeproj">
    </FileRef>
 </Workspace>

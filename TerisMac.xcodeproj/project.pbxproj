@@ -31,14 +31,14 @@
 		04771DE424A2F232004B8F4F /* GameWindowController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameWindowController.xib; sourceTree = "<group>"; };
 		04771DE724A319ED004B8F4F /* CubeSetFactory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CubeSetFactory.h; sourceTree = "<group>"; };
 		04771DE824A319ED004B8F4F /* CubeSetFactory.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CubeSetFactory.m; sourceTree = "<group>"; };
-		04E34FE1249C93EE000E6F25 /* SecondPro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SecondPro.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		04E34FE1249C93EE000E6F25 /* TerisMac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TerisMac.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04E34FE4249C93EE000E6F25 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		04E34FE5249C93EE000E6F25 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		04E34FE7249C93F0000E6F25 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		04E34FEA249C93F0000E6F25 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		04E34FEC249C93F0000E6F25 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		04E34FED249C93F0000E6F25 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		04E34FEF249C93F0000E6F25 /* SecondPro.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SecondPro.entitlements; sourceTree = "<group>"; };
+		04E34FEF249C93F0000E6F25 /* TerisMac.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TerisMac.entitlements; sourceTree = "<group>"; };
 		04E34FF624A0813A000E6F25 /* Container.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Container.h; sourceTree = "<group>"; };
 		04E34FF724A0813A000E6F25 /* Container.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Container.m; sourceTree = "<group>"; };
 		04E34FF924A08153000E6F25 /* CubeSet.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CubeSet.h; sourceTree = "<group>"; };
@@ -61,7 +61,7 @@
 		04E34FD8249C93EE000E6F25 = {
 			isa = PBXGroup;
 			children = (
-				04E34FE3249C93EE000E6F25 /* SecondPro */,
+				04E34FE3249C93EE000E6F25 /* TerisMac */,
 				04E34FE2249C93EE000E6F25 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -69,12 +69,12 @@
 		04E34FE2249C93EE000E6F25 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				04E34FE1249C93EE000E6F25 /* SecondPro.app */,
+				04E34FE1249C93EE000E6F25 /* TerisMac.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		04E34FE3249C93EE000E6F25 /* SecondPro */ = {
+		04E34FE3249C93EE000E6F25 /* TerisMac */ = {
 			isa = PBXGroup;
 			children = (
 				04E34FF524A08111000E6F25 /* Models */,
@@ -84,7 +84,7 @@
 				04E34FE9249C93F0000E6F25 /* MainMenu.xib */,
 				04E34FEC249C93F0000E6F25 /* Info.plist */,
 				04E34FED249C93F0000E6F25 /* main.m */,
-				04E34FEF249C93F0000E6F25 /* SecondPro.entitlements */,
+				04E34FEF249C93F0000E6F25 /* TerisMac.entitlements */,
 				04771DD424A1F1FB004B8F4F /* NSView+Frame.h */,
 				04771DD524A1F1FB004B8F4F /* NSView+Frame.m */,
 				04771DDA24A202DD004B8F4F /* CubeView.h */,
@@ -93,7 +93,7 @@
 				04771DE324A2F232004B8F4F /* GameWindowController.m */,
 				04771DE424A2F232004B8F4F /* GameWindowController.xib */,
 			);
-			path = SecondPro;
+			path = TerisMac;
 			sourceTree = "<group>";
 		};
 		04E34FF524A08111000E6F25 /* Models */ = {
@@ -114,9 +114,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		04E34FE0249C93EE000E6F25 /* SecondPro */ = {
+		04E34FE0249C93EE000E6F25 /* TerisMac */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 04E34FF2249C93F0000E6F25 /* Build configuration list for PBXNativeTarget "SecondPro" */;
+			buildConfigurationList = 04E34FF2249C93F0000E6F25 /* Build configuration list for PBXNativeTarget "TerisMac" */;
 			buildPhases = (
 				04E34FDD249C93EE000E6F25 /* Sources */,
 				04E34FDE249C93EE000E6F25 /* Frameworks */,
@@ -126,9 +126,9 @@
 			);
 			dependencies = (
 			);
-			name = SecondPro;
+			name = TerisMac;
 			productName = SecondPro;
-			productReference = 04E34FE1249C93EE000E6F25 /* SecondPro.app */;
+			productReference = 04E34FE1249C93EE000E6F25 /* TerisMac.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -145,7 +145,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 04E34FDC249C93EE000E6F25 /* Build configuration list for PBXProject "SecondPro" */;
+			buildConfigurationList = 04E34FDC249C93EE000E6F25 /* Build configuration list for PBXProject "TerisMac" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -158,7 +158,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				04E34FE0249C93EE000E6F25 /* SecondPro */,
+				04E34FE0249C93EE000E6F25 /* TerisMac */,
 			);
 		};
 /* End PBXProject section */
@@ -322,10 +322,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = SecondPro/SecondPro.entitlements;
+				CODE_SIGN_ENTITLEMENTS = TerisMac/TerisMac.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = SecondPro/Info.plist;
+				INFOPLIST_FILE = TerisMac/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -339,10 +339,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = SecondPro/SecondPro.entitlements;
+				CODE_SIGN_ENTITLEMENTS = TerisMac/TerisMac.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = SecondPro/Info.plist;
+				INFOPLIST_FILE = TerisMac/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -355,7 +355,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		04E34FDC249C93EE000E6F25 /* Build configuration list for PBXProject "SecondPro" */ = {
+		04E34FDC249C93EE000E6F25 /* Build configuration list for PBXProject "TerisMac" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				04E34FF0249C93F0000E6F25 /* Debug */,
@@ -364,7 +364,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		04E34FF2249C93F0000E6F25 /* Build configuration list for PBXNativeTarget "SecondPro" */ = {
+		04E34FF2249C93F0000E6F25 /* Build configuration list for PBXNativeTarget "TerisMac" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				04E34FF3249C93F0000E6F25 /* Debug */,

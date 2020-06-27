@@ -22,4 +22,9 @@
 -(Vector2*)add:(Vector2*) vec{
     return [[Vector2 alloc]initWith:vec.x + _x and: vec.y + _y];
 }
+
+- (NSString *)description
+{
+    return [NSString stringWithFormat:@"%ld, %ld", _x, _y];
+}
 @end

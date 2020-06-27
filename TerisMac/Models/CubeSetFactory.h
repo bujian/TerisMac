@@ -7,12 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "CubeSet.h"
 #import "Vector2.h"
 NS_ASSUME_NONNULL_BEGIN
 static const int PRE_DATA_COUNT = 2;
 
 @interface CubeSetFactory : NSObject
--(Vec2MutArrays)getCubeShapes;
+-(CubeSet*)getCubeSet;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -17,10 +17,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 -(Vector2*)add:(Vector2*) vec;
 - (instancetype)initWith:(NSInteger)x and: (NSInteger)y;
-typedef NSArray<Vector2*>* Vec2Array;
-typedef NSMutableArray<Vector2*>* Vec2MutArray;
-typedef NSArray<NSArray<Vector2*>*>* Vec2Arrays;
-typedef NSMutableArray<NSArray<Vector2*>*>* Vec2MutArrays;
 @end
 
 NS_ASSUME_NONNULL_END
