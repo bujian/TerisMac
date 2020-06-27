@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14460.31"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="GameWindowController">
+            <connections>
+                <outlet property="containerView" destination="Nww-Me-9rW" id="VMF-vr-SeS"/>
+                <outlet property="window" destination="F0z-JX-Cv5" id="gIp-Ho-8D9"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <window title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" animationBehavior="default" id="F0z-JX-Cv5">
+            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+            <rect key="contentRect" x="196" y="240" width="600" height="600"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1280" height="800"/>
+            <value key="minSize" type="size" width="600" height="600"/>
+            <value key="maxSize" type="size" width="600" height="600"/>
+            <value key="minFullScreenContentSize" type="size" width="600" height="600"/>
+            <value key="maxFullScreenContentSize" type="size" width="600" height="600"/>
+            <view key="contentView" wantsLayer="YES" id="se5-gp-TjO">
+                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LJd-1P-gsL">
+                        <rect key="frame" x="172" y="20" width="256" height="460"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="460" id="eQT-vZ-bjU"/>
+                            <constraint firstAttribute="width" secondItem="LJd-1P-gsL" secondAttribute="height" multiplier="400:720" id="yyN-im-gQB"/>
+                        </constraints>
+                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="axesIndependently" image="back" id="csV-6o-FU3"/>
+                    </imageView>
+                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="Nww-Me-9rW">
+                        <rect key="frame" x="177" y="26" width="246" height="449"/>
+                    </customView>
+                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uAI-b8-Tja">
+                        <rect key="frame" x="2" y="131" width="81" height="32"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Ptf-9o-aK0">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="buttonAction:" target="-2" id="sqm-R1-4Dq"/>
+                        </connections>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="Nww-Me-9rW" firstAttribute="leading" secondItem="LJd-1P-gsL" secondAttribute="leading" constant="5" id="A8B-6T-7pB"/>
+                    <constraint firstItem="LJd-1P-gsL" firstAttribute="centerX" secondItem="se5-gp-TjO" secondAttribute="centerX" id="IhM-OW-QyV"/>
+                    <constraint firstAttribute="bottom" secondItem="LJd-1P-gsL" secondAttribute="bottom" constant="20" id="Lli-mr-pmL"/>
+                    <constraint firstItem="Nww-Me-9rW" firstAttribute="top" secondItem="LJd-1P-gsL" secondAttribute="top" constant="5" id="VSC-H1-fFK"/>
+                    <constraint firstItem="Nww-Me-9rW" firstAttribute="bottom" secondItem="LJd-1P-gsL" secondAttribute="bottom" constant="-6" id="er7-gS-laT"/>
+                    <constraint firstItem="Nww-Me-9rW" firstAttribute="trailing" secondItem="LJd-1P-gsL" secondAttribute="trailing" constant="-5" id="kya-ZJ-YCb"/>
+                </constraints>
+            </view>
+            <connections>
+                <outlet property="delegate" destination="-2" id="0bl-1N-AYu"/>
+            </connections>
+            <point key="canvasLocation" x="169.5" y="140.5"/>
+        </window>
+    </objects>
+    <resources>
+        <image name="back" width="101.76000213623047" height="178.55999755859375"/>
+    </resources>
+</document>

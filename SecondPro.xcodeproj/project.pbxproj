@@ -1,0 +1,379 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		04771DD624A1F1FB004B8F4F /* NSView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = 04771DD524A1F1FB004B8F4F /* NSView+Frame.m */; };
+		04771DDC24A202DD004B8F4F /* CubeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04771DDB24A202DD004B8F4F /* CubeView.m */; };
+		04771DE524A2F232004B8F4F /* GameWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04771DE324A2F232004B8F4F /* GameWindowController.m */; };
+		04771DE624A2F232004B8F4F /* GameWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04771DE424A2F232004B8F4F /* GameWindowController.xib */; };
+		04771DE924A319ED004B8F4F /* CubeSetFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 04771DE824A319ED004B8F4F /* CubeSetFactory.m */; };
+		04E34FE6249C93EE000E6F25 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E34FE5249C93EE000E6F25 /* AppDelegate.m */; };
+		04E34FE8249C93F0000E6F25 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04E34FE7249C93F0000E6F25 /* Assets.xcassets */; };
+		04E34FEB249C93F0000E6F25 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04E34FE9249C93F0000E6F25 /* MainMenu.xib */; };
+		04E34FEE249C93F0000E6F25 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E34FED249C93F0000E6F25 /* main.m */; };
+		04E34FF824A0813A000E6F25 /* Container.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E34FF724A0813A000E6F25 /* Container.m */; };
+		04E34FFB24A08153000E6F25 /* CubeSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E34FFA24A08153000E6F25 /* CubeSet.m */; };
+		04E3500424A0A621000E6F25 /* Vector2.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E3500324A0A621000E6F25 /* Vector2.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		04771DD424A1F1FB004B8F4F /* NSView+Frame.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSView+Frame.h"; sourceTree = "<group>"; };
+		04771DD524A1F1FB004B8F4F /* NSView+Frame.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSView+Frame.m"; sourceTree = "<group>"; };
+		04771DDA24A202DD004B8F4F /* CubeView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CubeView.h; sourceTree = "<group>"; };
+		04771DDB24A202DD004B8F4F /* CubeView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CubeView.m; sourceTree = "<group>"; };
+		04771DE224A2F232004B8F4F /* GameWindowController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameWindowController.h; sourceTree = "<group>"; };
+		04771DE324A2F232004B8F4F /* GameWindowController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameWindowController.m; sourceTree = "<group>"; };
+		04771DE424A2F232004B8F4F /* GameWindowController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameWindowController.xib; sourceTree = "<group>"; };
+		04771DE724A319ED004B8F4F /* CubeSetFactory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CubeSetFactory.h; sourceTree = "<group>"; };
+		04771DE824A319ED004B8F4F /* CubeSetFactory.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CubeSetFactory.m; sourceTree = "<group>"; };
+		04E34FE1249C93EE000E6F25 /* SecondPro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SecondPro.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		04E34FE4249C93EE000E6F25 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		04E34FE5249C93EE000E6F25 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		04E34FE7249C93F0000E6F25 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		04E34FEA249C93F0000E6F25 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		04E34FEC249C93F0000E6F25 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		04E34FED249C93F0000E6F25 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		04E34FEF249C93F0000E6F25 /* SecondPro.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SecondPro.entitlements; sourceTree = "<group>"; };
+		04E34FF624A0813A000E6F25 /* Container.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Container.h; sourceTree = "<group>"; };
+		04E34FF724A0813A000E6F25 /* Container.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Container.m; sourceTree = "<group>"; };
+		04E34FF924A08153000E6F25 /* CubeSet.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CubeSet.h; sourceTree = "<group>"; };
+		04E34FFA24A08153000E6F25 /* CubeSet.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CubeSet.m; sourceTree = "<group>"; };
+		04E3500224A0A621000E6F25 /* Vector2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Vector2.h; sourceTree = "<group>"; };
+		04E3500324A0A621000E6F25 /* Vector2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Vector2.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		04E34FDE249C93EE000E6F25 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		04E34FD8249C93EE000E6F25 = {
+			isa = PBXGroup;
+			children = (
+				04E34FE3249C93EE000E6F25 /* SecondPro */,
+				04E34FE2249C93EE000E6F25 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		04E34FE2249C93EE000E6F25 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				04E34FE1249C93EE000E6F25 /* SecondPro.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		04E34FE3249C93EE000E6F25 /* SecondPro */ = {
+			isa = PBXGroup;
+			children = (
+				04E34FF524A08111000E6F25 /* Models */,
+				04E34FE4249C93EE000E6F25 /* AppDelegate.h */,
+				04E34FE5249C93EE000E6F25 /* AppDelegate.m */,
+				04E34FE7249C93F0000E6F25 /* Assets.xcassets */,
+				04E34FE9249C93F0000E6F25 /* MainMenu.xib */,
+				04E34FEC249C93F0000E6F25 /* Info.plist */,
+				04E34FED249C93F0000E6F25 /* main.m */,
+				04E34FEF249C93F0000E6F25 /* SecondPro.entitlements */,
+				04771DD424A1F1FB004B8F4F /* NSView+Frame.h */,
+				04771DD524A1F1FB004B8F4F /* NSView+Frame.m */,
+				04771DDA24A202DD004B8F4F /* CubeView.h */,
+				04771DDB24A202DD004B8F4F /* CubeView.m */,
+				04771DE224A2F232004B8F4F /* GameWindowController.h */,
+				04771DE324A2F232004B8F4F /* GameWindowController.m */,
+				04771DE424A2F232004B8F4F /* GameWindowController.xib */,
+			);
+			path = SecondPro;
+			sourceTree = "<group>";
+		};
+		04E34FF524A08111000E6F25 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				04E34FF624A0813A000E6F25 /* Container.h */,
+				04E34FF724A0813A000E6F25 /* Container.m */,
+				04E34FF924A08153000E6F25 /* CubeSet.h */,
+				04E34FFA24A08153000E6F25 /* CubeSet.m */,
+				04E3500224A0A621000E6F25 /* Vector2.h */,
+				04E3500324A0A621000E6F25 /* Vector2.m */,
+				04771DE724A319ED004B8F4F /* CubeSetFactory.h */,
+				04771DE824A319ED004B8F4F /* CubeSetFactory.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		04E34FE0249C93EE000E6F25 /* SecondPro */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 04E34FF2249C93F0000E6F25 /* Build configuration list for PBXNativeTarget "SecondPro" */;
+			buildPhases = (
+				04E34FDD249C93EE000E6F25 /* Sources */,
+				04E34FDE249C93EE000E6F25 /* Frameworks */,
+				04E34FDF249C93EE000E6F25 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SecondPro;
+			productName = SecondPro;
+			productReference = 04E34FE1249C93EE000E6F25 /* SecondPro.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		04E34FD9249C93EE000E6F25 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = shgbit;
+				TargetAttributes = {
+					04E34FE0249C93EE000E6F25 = {
+						CreatedOnToolsVersion = 10.1;
+					};
+				};
+			};
+			buildConfigurationList = 04E34FDC249C93EE000E6F25 /* Build configuration list for PBXProject "SecondPro" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 04E34FD8249C93EE000E6F25;
+			productRefGroup = 04E34FE2249C93EE000E6F25 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				04E34FE0249C93EE000E6F25 /* SecondPro */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		04E34FDF249C93EE000E6F25 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				04E34FE8249C93F0000E6F25 /* Assets.xcassets in Resources */,
+				04E34FEB249C93F0000E6F25 /* MainMenu.xib in Resources */,
+				04771DE624A2F232004B8F4F /* GameWindowController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		04E34FDD249C93EE000E6F25 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				04E34FFB24A08153000E6F25 /* CubeSet.m in Sources */,
+				04E34FF824A0813A000E6F25 /* Container.m in Sources */,
+				04E34FEE249C93F0000E6F25 /* main.m in Sources */,
+				04E34FE6249C93EE000E6F25 /* AppDelegate.m in Sources */,
+				04771DD624A1F1FB004B8F4F /* NSView+Frame.m in Sources */,
+				04E3500424A0A621000E6F25 /* Vector2.m in Sources */,
+				04771DE524A2F232004B8F4F /* GameWindowController.m in Sources */,
+				04771DDC24A202DD004B8F4F /* CubeView.m in Sources */,
+				04771DE924A319ED004B8F4F /* CubeSetFactory.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		04E34FE9249C93F0000E6F25 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				04E34FEA249C93F0000E6F25 /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		04E34FF0249C93F0000E6F25 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		04E34FF1249C93F0000E6F25 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		04E34FF3249C93F0000E6F25 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = SecondPro/SecondPro.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = SecondPro/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.shgbit.SecondPro;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		04E34FF4249C93F0000E6F25 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = SecondPro/SecondPro.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = SecondPro/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.shgbit.SecondPro;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		04E34FDC249C93EE000E6F25 /* Build configuration list for PBXProject "SecondPro" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				04E34FF0249C93F0000E6F25 /* Debug */,
+				04E34FF1249C93F0000E6F25 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		04E34FF2249C93F0000E6F25 /* Build configuration list for PBXNativeTarget "SecondPro" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				04E34FF3249C93F0000E6F25 /* Debug */,
+				04E34FF4249C93F0000E6F25 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 04E34FD9249C93EE000E6F25 /* Project object */;
+}
