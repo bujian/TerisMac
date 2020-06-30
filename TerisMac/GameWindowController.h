@@ -8,10 +8,13 @@
 
 #import <Cocoa/Cocoa.h>
 
-NS_ASSUME_NONNULL_BEGIN
+typedef enum : NSUInteger {
+    GameState_Start,
+    GameState_Pause,
+    GameState_Stop,
+} GameState;
 
 @interface GameWindowController : NSWindowController
 
 @end
 
-NS_ASSUME_NONNULL_END

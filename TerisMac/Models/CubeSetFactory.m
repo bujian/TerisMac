@@ -6,6 +6,8 @@
 //  Copyright © 2020年 shgbit. All rights reserved.
 //
 
+#define PRE_DATA_COUNT 3
+
 #import "CubeSetFactory.h"
 @interface CubeSetFactory()
 @property (nonatomic, strong) NSMutableArray* preData;
@@ -46,8 +48,18 @@
     //o o
     //o o
     NSArray* shape7 = [[NSArray alloc] initWithObjects:@(0),@(0), @(0),@(1), @(1),@(1), @(1),@(0), nil];
+    //o o
+    //  o
+    //o o
+    NSArray* shape8 = [[NSArray alloc] initWithObjects:@(0),@(0), @(1),@(0), @(1),@(1), @(1),@(2),@(0),@(2), nil];
+    //o o o
+    //o   o
+    //o o o
+    NSArray* shape9 = [[NSArray alloc] initWithObjects:
+                       @(0),@(0), @(1),@(0), @(2),@(0),@(2),@(1),@(2),@(2),
+                       @(1),@(2),@(0),@(2),@(0),@(1), nil];
 
-    _formatData = [[NSArray alloc] initWithObjects: shape1, shape2, shape3, shape4, shape5, shape6, shape7, nil];
+    _formatData = [[NSArray alloc] initWithObjects: shape1, shape2, shape3, shape4, shape5, shape6, shape7, shape8, shape9,nil];
     [self initPreData];
 }
 
@@ -78,9 +90,14 @@
 
 -(void)generateSinglePreData{
     int num = arc4random() % _formatData.count;
+    //int num = 7;
     NSArray* data = _formatData[num];
     CubeSet* set = [[CubeSet alloc]initWithShapes:data];
     [_preData addObject: set];
+}
+
+-(NSArray*)getPreData{
+    return [_preData copy];
 }
 
 @end

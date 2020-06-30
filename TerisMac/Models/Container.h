@@ -24,7 +24,7 @@ static const int EMPTY_ROW_COUNT = 4;
  检索行，没有空格就删掉
  @param lines 行索引列表
  */
--(void)checkLinesNeededToRemove:(NSArray*)lines;
+-(NSInteger)checkLinesNeededToRemove:(NSArray*)lines;
 
 /**
  是否能旋转

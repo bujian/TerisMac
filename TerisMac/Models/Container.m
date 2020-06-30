@@ -78,7 +78,7 @@ typedef NSMutableArray<NSMutableArray*>* StateArrays;
     }
 }
 
--(void)checkLinesNeededToRemove:(NSArray*)lines{
+-(NSInteger)checkLinesNeededToRemove:(NSArray*)lines{
     NSMutableArray* linesNeedToRemove = [NSMutableArray array];
     for (int i = 0; i < lines.count; i++) {
         NSNumber* num = lines[i];
@@ -88,12 +88,14 @@ typedef NSMutableArray<NSMutableArray*>* StateArrays;
             [linesNeedToRemove addObject:num];
         }
     }
-    if(linesNeedToRemove.count == 0) return;
+    if(linesNeedToRemove.count == 0) return 0;
     [linesNeedToRemove sortedArrayUsingSelector:@selector(compare:)];
     //消行
     [self removeLines:linesNeedToRemove];
     //移动
     [self moveOtherLinesAfterRemoveLines:linesNeedToRemove];
+    
+    return linesNeedToRemove.count;
 }
 
 - (bool)checkLinesOverContainer{

@@ -6,17 +6,36 @@
 //  Copyright © 2020年 shgbit. All rights reserved.
 //
 
+//#define BjImage(name)   [NSImage imageNamed:name];
+
+
 #import "GameWindowController.h"
 #import "Container.h"
 #import "CubeSet.h"
 #import "CubeSetFactory.h"
+#import "GameConfig.h"
+#define LEVEL_SCORE             100
 
 @interface GameWindowController ()
-@property (weak) IBOutlet NSView *containerView;
 @property (nonatomic, strong) NSTimer* timer;
 @property (nonatomic, strong) Container* container;
 @property (nonatomic, strong) CubeSet* curCubeSet;
 @property (nonatomic, strong) CubeSetFactory* cubeSetFactory;
+@property (nonatomic, assign) GameState gameState;
+@property (nonatomic, strong) GameConfig* gameConfig;
+
+@property (weak) IBOutlet NSView *containerView;
+@property (weak) IBOutlet NSButton *startButton;
+@property (weak) IBOutlet NSView *scorePanel;
+@property (weak) IBOutlet NSImageView *speedPanel;
+@property (weak) IBOutlet NSImageView *next1Panel;
+@property (weak) IBOutlet NSImageView *next2Panel;
+@property (weak) IBOutlet NSImageView *next3Panel;
+@property (weak) IBOutlet NSTextField *highestScoreLabel;
+@property (weak) IBOutlet NSTextField *curScoreLabel;
+@property (weak) IBOutlet NSTextField *removeLinesLabel;
+@property (weak) IBOutlet NSTextField *speedLabel;
+
 @end
 
 @implementation GameWindowController
@@ -26,24 +45,56 @@
 //    NSLog(@"game controller loaded");
     _container = [[Container alloc] initWithView:_containerView];
     _cubeSetFactory = [[CubeSetFactory alloc] init];
-    [self startGame];
+    self.gameState = GameState_Stop;
+    [self loadConfig];
 }
 
+-(void)loadConfig{
+    _gameConfig = [[GameConfig alloc]init];
+    _highestScoreLabel.stringValue = _gameConfig.highestScore;
+}
+
+-(void)saveConfig{
+    _gameConfig.highestScore = _highestScoreLabel.stringValue;
+    [_gameConfig writeConfig];
+}
 
 -(void)startGame{
     [_container clearContainer];
+    [self initConfig];
     [self createNewCube];
     [self startTimer];
+    self.gameState = GameState_Start;
+}
+
+-(void)initConfig{
+    _curScoreLabel.integerValue = 0;
+    _removeLinesLabel.integerValue = 0;
+    _speedLabel.integerValue = 1;
 }
 
 -(void)gameOver{
     NSLog(@"Game Over");
     [_container disableContainer];
     [_timer invalidate];
+    self.gameState = GameState_Stop;
+    if(_curScoreLabel.integerValue > _highestScoreLabel.integerValue){
+        _highestScoreLabel.integerValue = _curScoreLabel.integerValue;
+    }
 }
 
 -(void)startTimer{
-    _timer = [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(timerEvent) userInfo:nil repeats:true];
+    float time = 0.5 / _speedLabel.intValue;
+    _timer = [NSTimer scheduledTimerWithTimeInterval:time target:self selector:@selector(timerEvent) userInfo:nil repeats:true];
+}
+
+-(void)restartTimer{
+    [self stopTimer];
+    [self startTimer];
+}
+
+-(void)stopTimer{
+    [_timer invalidate];
 }
 
 -(void)timerEvent{
@@ -55,9 +106,10 @@
     NSRect rect = [_container getStartRect];
     Vector2* size = _container.size;
     Vector2* originPos = [[Vector2 alloc] initWith:size.x / 2 and:size.y];
-    NSView *view = [_curCubeSet createCubeView:rect OriginPos:originPos];
+    NSView *view = [_curCubeSet createCubeSetViewWithCubeRect:rect OriginPos:originPos];
     
     [_containerView addSubview:view];
+    [self updatePreDataPanel];
 }
 
 - (void)cubeMoveRight {
@@ -97,11 +149,27 @@
     }
 }
 
+- (void)addRemoveLinesScore:(NSInteger)removeLinesCount {
+    _removeLinesLabel.integerValue += removeLinesCount;
+    _curScoreLabel.integerValue = _removeLinesLabel.integerValue * 10;
+    NSInteger speed = _curScoreLabel.integerValue / LEVEL_SCORE + 1;
+    if(speed != _speedLabel.integerValue){
+        if(speed <= 5){
+            _speedLabel.integerValue = speed;
+            [self restartTimer];
+        }
+    }
+}
+
 - (void)cubeReachedBottom {
     NSView* cubeSetView = [_curCubeSet releaseCubes];
+    //每个方块加1分
+    _curScoreLabel.integerValue += cubeSetView.subviews.count;
     NSArray* lines = [_container addCube: cubeSetView];
     [cubeSetView removeFromSuperview];
-    [_container checkLinesNeededToRemove:lines];
+    NSInteger removeLinesCount = [_container checkLinesNeededToRemove:lines];
+    //消除一行加10分
+    if(removeLinesCount > 0) [self addRemoveLinesScore:removeLinesCount];
     bool overMap = [_container checkLinesOverContainer];
     if(overMap) [self gameOver];
     else [self createNewCube];
@@ -141,9 +209,67 @@
     NSLog(@"鼠标点击");
 }
 
-- (IBAction)buttonAction:(id)sender {
+- (IBAction)buttonAction:(NSButton *)sender {
     NSLog(@"点击按钮");
-    [self startGame];
+    switch (self.gameState) {
+        case GameState_Start:
+            self.gameState = GameState_Pause;
+            [self stopTimer];
+            break;
+        case GameState_Pause:{
+            self.gameState = GameState_Start;
+            [self startTimer];
+        }
+            break;
+        case GameState_Stop:{
+            self.gameState = GameState_Start;
+            [self startGame];
+        }
+            break;
+        default:
+            break;
+    }
+
+}
+
+- (void)setGameState:(GameState)gameState{
+    if(gameState == GameState_Start){
+        _startButton.image = [NSImage imageNamed:@"pause"];
+    }
+    else{
+        _startButton.image = [NSImage imageNamed:@"play"];
+    }
+    _gameState = gameState;
+}
+
+- (void)removeAllSubeViews:(NSView *)panel {
+    for (NSView* view in panel.subviews) {
+        if ([NSStringFromClass([view class]) isEqualToString:@"NSImageViewContainerView"]) continue;
+        [view removeFromSuperview];
+    }
+}
+
+-(void)updatePreDataPanel{
+    NSArray* cubeSets = [_cubeSetFactory getPreData];
+    NSArray* panels = [[NSArray alloc] initWithObjects:_next1Panel,_next2Panel,_next3Panel, nil];
+    for (int i = 0; i < panels.count; i++) {
+        NSImageView* panel = panels[i];
+        [self removeAllSubeViews:panel];
+        
+        CubeSet* set = cubeSets[i];
+        CGSize imageViewRect = panel.frame.size;
+        CGSize cubeViewSize = NSMakeSize(imageViewRect.width / 2, imageViewRect.height / 2);
+        CGPoint imageViewCenterPoint = NSMakePoint(cubeViewSize.width, cubeViewSize.height);
+        CGPoint cubeViewPos = NSMakePoint(imageViewCenterPoint.x - cubeViewSize.width / 2,  imageViewCenterPoint.y - cubeViewSize.height / 2);
+        NSView* setView = [set createCubeSetViewWithViewRect:NSMakeRect(cubeViewPos.x, cubeViewPos.y, cubeViewSize.width, cubeViewSize.height)];
+        [panel addSubview:setView];
+    }
+}
+
+
+- (void)windowWillClose:(NSNotification *)notification{
+    [self saveConfig];
+    NSLog(@"窗口要关掉了");
 }
 
 @end

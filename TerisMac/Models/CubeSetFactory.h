@@ -10,10 +10,11 @@
 #import "CubeSet.h"
 #import "Vector2.h"
 NS_ASSUME_NONNULL_BEGIN
-static const int PRE_DATA_COUNT = 2;
+//static const int PRE_DATA_COUNT = 2;
 
 @interface CubeSetFactory : NSObject
 -(CubeSet*)getCubeSet;
+-(NSArray*)getPreData;
 @end
 
 NS_ASSUME_NONNULL_END

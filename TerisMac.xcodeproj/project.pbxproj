@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0454177424AB258800550586 /* GameConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 0454177324AB258800550586 /* GameConfig.m */; };
+		045B9D8024A9906F0048E228 /* 演示悠然小楷.ttf in CopyFiles */ = {isa = PBXBuildFile; fileRef = 045B9D7F24A990650048E228 /* 演示悠然小楷.ttf */; };
 		04771DD624A1F1FB004B8F4F /* NSView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = 04771DD524A1F1FB004B8F4F /* NSView+Frame.m */; };
 		04771DDC24A202DD004B8F4F /* CubeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04771DDB24A202DD004B8F4F /* CubeView.m */; };
 		04771DE524A2F232004B8F4F /* GameWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04771DE324A2F232004B8F4F /* GameWindowController.m */; };
@@ -21,7 +23,23 @@
 		04E3500424A0A621000E6F25 /* Vector2.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E3500324A0A621000E6F25 /* Vector2.m */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		045B9D7E24A9901F0048E228 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = Fonts;
+			dstSubfolderSpec = 7;
+			files = (
+				045B9D8024A9906F0048E228 /* 演示悠然小楷.ttf in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		0454177224AB258800550586 /* GameConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameConfig.h; sourceTree = "<group>"; };
+		0454177324AB258800550586 /* GameConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameConfig.m; sourceTree = "<group>"; };
+		045B9D7F24A990650048E228 /* 演示悠然小楷.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "演示悠然小楷.ttf"; sourceTree = "<group>"; };
 		04771DD424A1F1FB004B8F4F /* NSView+Frame.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSView+Frame.h"; sourceTree = "<group>"; };
 		04771DD524A1F1FB004B8F4F /* NSView+Frame.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSView+Frame.m"; sourceTree = "<group>"; };
 		04771DDA24A202DD004B8F4F /* CubeView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CubeView.h; sourceTree = "<group>"; };
@@ -77,6 +95,7 @@
 		04E34FE3249C93EE000E6F25 /* TerisMac */ = {
 			isa = PBXGroup;
 			children = (
+				045B9D7F24A990650048E228 /* 演示悠然小楷.ttf */,
 				04E34FF524A08111000E6F25 /* Models */,
 				04E34FE4249C93EE000E6F25 /* AppDelegate.h */,
 				04E34FE5249C93EE000E6F25 /* AppDelegate.m */,
@@ -107,6 +126,8 @@
 				04E3500324A0A621000E6F25 /* Vector2.m */,
 				04771DE724A319ED004B8F4F /* CubeSetFactory.h */,
 				04771DE824A319ED004B8F4F /* CubeSetFactory.m */,
+				0454177224AB258800550586 /* GameConfig.h */,
+				0454177324AB258800550586 /* GameConfig.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -121,6 +142,7 @@
 				04E34FDD249C93EE000E6F25 /* Sources */,
 				04E34FDE249C93EE000E6F25 /* Frameworks */,
 				04E34FDF249C93EE000E6F25 /* Resources */,
+				045B9D7E24A9901F0048E228 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -186,6 +208,7 @@
 				04E34FEE249C93F0000E6F25 /* main.m in Sources */,
 				04E34FE6249C93EE000E6F25 /* AppDelegate.m in Sources */,
 				04771DD624A1F1FB004B8F4F /* NSView+Frame.m in Sources */,
+				0454177424AB258800550586 /* GameConfig.m in Sources */,
 				04E3500424A0A621000E6F25 /* Vector2.m in Sources */,
 				04771DE524A2F232004B8F4F /* GameWindowController.m in Sources */,
 				04771DDC24A202DD004B8F4F /* CubeView.m in Sources */,

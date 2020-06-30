@@ -50,11 +50,7 @@
     _sideLength += 1;
 }
 
--(NSView*)createCubeView:(NSRect)rect OriginPos:(Vector2*)ori{
-    CGFloat width = rect.size.width;
-    CGFloat height = rect.size.height;
-    NSView* cubes = [[NSView alloc]initWithFrame:NSMakeRect(rect.origin.x, rect.origin.y, width * _sideLength, height * _sideLength)];
-    
+- (void)drawCubeView:(NSView *)cubes height:(CGFloat)height width:(CGFloat)width {
     NSArray* curShape = _shapes;
     for (int i = 0; i < curShape.count; i ++) {
         
@@ -65,9 +61,27 @@
         [cube setViewBackgrounImage:shapePoint.imagePath];
         [cubes addSubview:cube];
     }
+}
+
+-(NSView*)createCubeSetViewWithCubeRect:(NSRect)rect OriginPos:(Vector2*)ori{
+    CGFloat width = rect.size.width;
+    CGFloat height = rect.size.height;
+    NSView* cubes = [[NSView alloc]initWithFrame:NSMakeRect(rect.origin.x, rect.origin.y, width * _sideLength, height * _sideLength)];
+    
+    [self drawCubeView:cubes height:height width:width];
     _oriPos = ori;
     _cellWidth = width;
     _cellHeight = height;
+    _thisView = cubes;
+    return _thisView;
+}
+
+-(NSView*)createCubeSetViewWithViewRect:(NSRect)rect{
+    CGFloat width = rect.size.width;
+    CGFloat height = rect.size.height;
+    NSView* cubes = [[NSView alloc]initWithFrame:NSMakeRect(rect.origin.x, rect.origin.y, width, height)];
+    
+    [self drawCubeView:cubes height:height/_sideLength width:width/_sideLength];
     _thisView = cubes;
     return _thisView;
 }
@@ -113,7 +127,6 @@
 }
 
 -(NSArray*)arraysRotate:(NSArray*)array{
-    NSLog(@"%@", array);
     NSMutableArray* temp = [NSMutableArray array];
     int len = _sideLength;
     for (int i = 0; i < array.count; i++) {
@@ -121,7 +134,6 @@
         Vector2* new = [[Vector2 alloc] initWith:old.y and:len - 1 - old.x];
         [temp addObject:new];
     }
-    NSLog(@"%@", temp);
     return [temp copy];
 }
 
