@@ -39,9 +39,9 @@
     //o o o
     //
     NSArray* shape5 = [[NSArray alloc] initWithObjects:@(0),@(2), @(0),@(1), @(1),@(1), @(2),@(1), nil];
+    //
+    //
     //o o o o
-    //
-    //
     //
     NSArray* shape6 = [[NSArray alloc] initWithObjects:@(0),@(2), @(1),@(2), @(2),@(2), @(3),@(2), nil];
     //
@@ -90,7 +90,7 @@
 
 -(void)generateSinglePreData{
     int num = arc4random() % _formatData.count;
-    //int num = 7;
+//    num = 5;
     NSArray* data = _formatData[num];
     CubeSet* set = [[CubeSet alloc]initWithShapes:data];
     [_preData addObject: set];

@@ -42,9 +42,9 @@ typedef NSMutableArray<NSMutableArray*>* StateArrays;
     return self;
 }
 
--(void)removeLines:(NSArray<NSNumber*>*)lineNums{
+-(void)removeLines:(NSArray*)lineNums{
     for (int i = 0; i < lineNums.count; i++) {
-        int num = lineNums[i].intValue;
+        int num = [lineNums[i] intValue] ;
         [self removeLine: num];
     }
 }
@@ -60,7 +60,7 @@ typedef NSMutableArray<NSMutableArray*>* StateArrays;
     return hasEmpty;
 }
 
-- (void)moveOtherLinesAfterRemoveLines:(NSMutableArray *)linesNeedToRemove {
+- (void)moveOtherLinesAfterRemoveLines:(NSArray *)linesNeedToRemove {
     int min = [linesNeedToRemove[0] intValue];
     for (int i = min + 1; i < _yMax; i++) {
         int moveCount = 0;
@@ -90,10 +90,17 @@ typedef NSMutableArray<NSMutableArray*>* StateArrays;
     }
     if(linesNeedToRemove.count == 0) return 0;
     [linesNeedToRemove sortedArrayUsingSelector:@selector(compare:)];
+    //排序
+    NSArray* sortedLines = [linesNeedToRemove sortedArrayUsingComparator:^NSComparisonResult(id  _Nonnull obj1, id  _Nonnull obj2) {
+        NSInteger o1 = ((NSNumber*)obj1).integerValue;
+        NSInteger o2 = ((NSNumber*)obj2).integerValue;
+        if(o1 < o2) return NSOrderedAscending;
+        else return NSOrderedDescending;
+    }];
     //消行
-    [self removeLines:linesNeedToRemove];
+    [self removeLines:sortedLines];
     //移动
-    [self moveOtherLinesAfterRemoveLines:linesNeedToRemove];
+    [self moveOtherLinesAfterRemoveLines:sortedLines];
     
     return linesNeedToRemove.count;
 }
