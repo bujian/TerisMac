@@ -23,6 +23,7 @@
 @property (nonatomic, strong) CubeSetFactory* cubeSetFactory;
 @property (nonatomic, assign) GameState gameState;
 @property (nonatomic, strong) GameConfig* gameConfig;
+@property (nonatomic, assign) NSString* aa;
 
 @property (weak) IBOutlet NSView *containerView;
 @property (weak) IBOutlet NSButton *startButton;
@@ -47,6 +48,16 @@
     _cubeSetFactory = [[CubeSetFactory alloc] init];
     self.gameState = GameState_Stop;
     [self loadConfig];
+//    self.aa = @ "asdfasdf";
+//    NSArray *array = @[@(1), @(5), @(3), @(7)];
+//    NSLog(@"%d", [[array valueForKeyPath:@"@min.intValue"] intValue]);
+//    [self addObserver:self forKeyPath:@"curScoreLabel.intValue" options:NSKeyValueObservingOptionNew context:nil];
+//    self.curScoreLabel.intValue = 1000;
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+    NSLog(@"key cahnged");
 }
 
 -(void)loadConfig{
@@ -173,7 +184,9 @@
     bool overMap = [_container checkLinesOverContainer];
     if(overMap) [self gameOver];
     else [self createNewCube];
+    
 }
+
 
 -(void)keyDown:(NSEvent *)event{
     NSLog(@"key : %@", event.characters);

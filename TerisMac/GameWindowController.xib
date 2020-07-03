@@ -16,7 +16,7 @@
                 <outlet property="next3Panel" destination="Sd5-c7-Tgc" id="zUb-rH-DtA"/>
                 <outlet property="removeLinesLabel" destination="zjr-RJ-iUR" id="jce-yK-QRQ"/>
                 <outlet property="scorePanel" destination="GGX-jb-wWS" id="Huu-D5-s0Y"/>
-                <outlet property="speedLabel" destination="SEH-uZ-9Mr" id="4tk-NI-PI9"/>
+                <outlet property="speedLabel" destination="SEH-uZ-9Mr" id="NyD-UH-MaG"/>
                 <outlet property="speedPanel" destination="IXN-mi-tXZ" id="hhm-Gd-0Mh"/>
                 <outlet property="startButton" destination="uAI-b8-Tja" id="PGs-6m-Ihh"/>
                 <outlet property="window" destination="F0z-JX-Cv5" id="gIp-Ho-8D9"/>
@@ -28,7 +28,7 @@
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="196" y="240" width="566" height="600"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1280" height="777"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1280" height="800"/>
             <value key="minSize" type="size" width="566" height="600"/>
             <value key="maxSize" type="size" width="566" height="600"/>
             <value key="minFullScreenContentSize" type="size" width="566" height="600"/>
@@ -254,6 +254,7 @@
             </connections>
             <point key="canvasLocation" x="197" y="140"/>
         </window>
+        <userDefaultsController representsSharedInstance="YES" id="p7U-Yn-mDo"/>
     </objects>
     <resources>
         <image name="contentBack" width="30.239999771118164" height="30.239999771118164"/>

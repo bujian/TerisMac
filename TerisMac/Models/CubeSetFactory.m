@@ -22,44 +22,43 @@
     //o o
     //  o o
     //
-    NSArray* shape1 = [[NSArray alloc] initWithObjects:@(0),@(2),@(1),@(2), @(1),@(1),@(2),@(1), nil];
+    NSArray* shape1 = @[@(0),@(2),@(1),@(2), @(1),@(1),@(2),@(1)];
     //  o
     //o o o
     //
-    NSArray* shape2 = [[NSArray alloc] initWithObjects:@(0),@(1), @(1),@(1), @(1),@(2), @(2),@(1), nil];
+    NSArray* shape2 = @[@(0),@(1), @(1),@(1), @(1),@(2), @(2),@(1)];
     //  o o
     //o o
     //
-    NSArray* shape3 = [[NSArray alloc] initWithObjects:@(0),@(1), @(1),@(1), @(1),@(2), @(2),@(2), nil];
+    NSArray* shape3 = @[@(0),@(1), @(1),@(1), @(1),@(2), @(2),@(2)];
     //    o
     //o o o
     //
-    NSArray* shape4 = [[NSArray alloc] initWithObjects:@(0),@(1), @(1),@(1), @(2),@(1), @(2),@(2), nil];
+    NSArray* shape4 = @[@(0),@(1), @(1),@(1), @(2),@(1), @(2),@(2)];
     //o
     //o o o
     //
-    NSArray* shape5 = [[NSArray alloc] initWithObjects:@(0),@(2), @(0),@(1), @(1),@(1), @(2),@(1), nil];
+    NSArray* shape5 = @[@(0),@(2), @(0),@(1), @(1),@(1), @(2),@(1)];
     //
     //
     //o o o o
     //
-    NSArray* shape6 = [[NSArray alloc] initWithObjects:@(0),@(2), @(1),@(2), @(2),@(2), @(3),@(2), nil];
+    NSArray* shape6 = @[@(0),@(2), @(1),@(2), @(2),@(2), @(3),@(2)];
     //
     //o o
     //o o
-    NSArray* shape7 = [[NSArray alloc] initWithObjects:@(0),@(0), @(0),@(1), @(1),@(1), @(1),@(0), nil];
+    NSArray* shape7 = @[@(0),@(0), @(0),@(1), @(1),@(1), @(1),@(0)];
     //o o
     //  o
     //o o
-    NSArray* shape8 = [[NSArray alloc] initWithObjects:@(0),@(0), @(1),@(0), @(1),@(1), @(1),@(2),@(0),@(2), nil];
+    NSArray* shape8 = @[@(0),@(0), @(1),@(0), @(1),@(1), @(1),@(2),@(0),@(2)];
     //o o o
     //o   o
     //o o o
-    NSArray* shape9 = [[NSArray alloc] initWithObjects:
-                       @(0),@(0), @(1),@(0), @(2),@(0),@(2),@(1),@(2),@(2),
-                       @(1),@(2),@(0),@(2),@(0),@(1), nil];
+    NSArray* shape9 = @[@(0),@(0), @(1),@(0), @(2),@(0),@(2),@(1),@(2),@(2),
+                       @(1),@(2),@(0),@(2),@(0),@(1)];
 
-    _formatData = [[NSArray alloc] initWithObjects: shape1, shape2, shape3, shape4, shape5, shape6, shape7, shape8, shape9,nil];
+    _formatData = @[shape1, shape2, shape3, shape4, shape5, shape6, shape7, shape8, shape9];
     [self initPreData];
 }
 
