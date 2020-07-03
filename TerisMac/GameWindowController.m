@@ -14,7 +14,6 @@
 #import "CubeSet.h"
 #import "CubeSetFactory.h"
 #import "GameConfig.h"
-#define LEVEL_SCORE             100
 
 @interface GameWindowController ()
 @property (nonatomic, strong) NSTimer* timer;
@@ -23,19 +22,13 @@
 @property (nonatomic, strong) CubeSetFactory* cubeSetFactory;
 @property (nonatomic, assign) GameState gameState;
 @property (nonatomic, strong) GameConfig* gameConfig;
-@property (nonatomic, assign) NSString* aa;
 
 @property (weak) IBOutlet NSView *containerView;
 @property (weak) IBOutlet NSButton *startButton;
-@property (weak) IBOutlet NSView *scorePanel;
-@property (weak) IBOutlet NSImageView *speedPanel;
 @property (weak) IBOutlet NSImageView *next1Panel;
 @property (weak) IBOutlet NSImageView *next2Panel;
 @property (weak) IBOutlet NSImageView *next3Panel;
-@property (weak) IBOutlet NSTextField *highestScoreLabel;
-@property (weak) IBOutlet NSTextField *curScoreLabel;
-@property (weak) IBOutlet NSTextField *removeLinesLabel;
-@property (weak) IBOutlet NSTextField *speedLabel;
+@property (strong) IBOutlet NSObjectController *objectController;
 
 @end
 
@@ -53,7 +46,7 @@
 //    NSLog(@"%d", [[array valueForKeyPath:@"@min.intValue"] intValue]);
 //    [self addObserver:self forKeyPath:@"curScoreLabel.intValue" options:NSKeyValueObservingOptionNew context:nil];
 //    self.curScoreLabel.intValue = 1000;
-}
+    }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
@@ -61,27 +54,21 @@
 }
 
 -(void)loadConfig{
-    _gameConfig = [[GameConfig alloc]init];
-    _highestScoreLabel.stringValue = _gameConfig.highestScore;
+    self.gameConfig = [[GameConfig alloc]init];
+//    _highestScoreLabel.stringValue = _gameConfig.highestScore;
 }
 
 -(void)saveConfig{
-    _gameConfig.highestScore = _highestScoreLabel.stringValue;
-    [_gameConfig writeConfig];
+//    _gameConfig.highestScore = _highestScoreLabel.stringValue;
+    [self.gameConfig writeConfig];
 }
 
 -(void)startGame{
     [_container clearContainer];
-    [self initConfig];
+    [self.gameConfig initConfig];
     [self createNewCube];
-    [self startTimer];
     self.gameState = GameState_Start;
-}
-
--(void)initConfig{
-    _curScoreLabel.integerValue = 0;
-    _removeLinesLabel.integerValue = 0;
-    _speedLabel.integerValue = 1;
+    [self startTimer];
 }
 
 -(void)gameOver{
@@ -89,13 +76,11 @@
     [_container disableContainer];
     [_timer invalidate];
     self.gameState = GameState_Stop;
-    if(_curScoreLabel.integerValue > _highestScoreLabel.integerValue){
-        _highestScoreLabel.integerValue = _curScoreLabel.integerValue;
-    }
+    [self.gameConfig updateScore];
 }
 
 -(void)startTimer{
-    float time = 0.5 / _speedLabel.intValue;
+    float time = self.gameConfig.speedTime;
     _timer = [NSTimer scheduledTimerWithTimeInterval:time target:self selector:@selector(timerEvent) userInfo:nil repeats:true];
 }
 
@@ -160,30 +145,19 @@
     }
 }
 
-- (void)addRemoveLinesScore:(NSInteger)removeLinesCount {
-    _removeLinesLabel.integerValue += removeLinesCount;
-    _curScoreLabel.integerValue = _removeLinesLabel.integerValue * 10;
-    NSInteger speed = _curScoreLabel.integerValue / LEVEL_SCORE + 1;
-    if(speed != _speedLabel.integerValue){
-        if(speed <= 5){
-            _speedLabel.integerValue = speed;
-            [self restartTimer];
-        }
-    }
-}
-
 - (void)cubeReachedBottom {
     NSView* cubeSetView = [_curCubeSet releaseCubes];
-    //每个方块加1分
-    _curScoreLabel.integerValue += cubeSetView.subviews.count;
+    bool cubeSpeedChanged = [self.gameConfig addCubesCubesScore:cubeSetView.subviews.count];
     NSArray* lines = [_container addCube: cubeSetView];
     [cubeSetView removeFromSuperview];
     NSInteger removeLinesCount = [_container checkLinesNeededToRemove:lines];
-    //消除一行加10分
-    if(removeLinesCount > 0) [self addRemoveLinesScore:removeLinesCount];
+    bool linesSpeedChanged = [self.gameConfig addRemovedLines:removeLinesCount];
     bool overMap = [_container checkLinesOverContainer];
     if(overMap) [self gameOver];
-    else [self createNewCube];
+    else {
+        [self createNewCube];
+        if(cubeSpeedChanged || linesSpeedChanged) [self restartTimer];
+    }
     
 }
 

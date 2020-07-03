@@ -9,15 +9,11 @@
         <customObject id="-2" userLabel="File's Owner" customClass="GameWindowController">
             <connections>
                 <outlet property="containerView" destination="XXb-c4-sO8" id="RTZ-55-7Hy"/>
-                <outlet property="curScoreLabel" destination="l08-Yk-gsL" id="zRJ-k2-BxF"/>
-                <outlet property="highestScoreLabel" destination="REK-tu-dsm" id="x0s-Nz-Ccb"/>
                 <outlet property="next1Panel" destination="OEy-pz-8xO" id="eRn-YH-Ygg"/>
                 <outlet property="next2Panel" destination="3eq-Jy-vzr" id="xJi-Pa-YV5"/>
                 <outlet property="next3Panel" destination="Sd5-c7-Tgc" id="zUb-rH-DtA"/>
-                <outlet property="removeLinesLabel" destination="zjr-RJ-iUR" id="jce-yK-QRQ"/>
-                <outlet property="scorePanel" destination="GGX-jb-wWS" id="Huu-D5-s0Y"/>
+                <outlet property="objectController" destination="sC1-b2-zLl" id="snt-k4-NMY"/>
                 <outlet property="speedLabel" destination="SEH-uZ-9Mr" id="NyD-UH-MaG"/>
-                <outlet property="speedPanel" destination="IXN-mi-tXZ" id="hhm-Gd-0Mh"/>
                 <outlet property="startButton" destination="uAI-b8-Tja" id="PGs-6m-Ihh"/>
                 <outlet property="window" destination="F0z-JX-Cv5" id="gIp-Ho-8D9"/>
             </connections>
@@ -150,6 +146,9 @@
                             <color key="textColor" name="systemYellowColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
+                        <connections>
+                            <binding destination="sC1-b2-zLl" name="value" keyPath="selection.removeLines" id="ej4-ig-Wth"/>
+                        </connections>
                     </textField>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="SEH-uZ-9Mr">
                         <rect key="frame" x="70" y="185" width="16" height="23"/>
@@ -158,6 +157,9 @@
                             <color key="textColor" name="systemYellowColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
+                        <connections>
+                            <binding destination="sC1-b2-zLl" name="value" keyPath="selection.speed" id="Tdt-0P-5KV"/>
+                        </connections>
                     </textField>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="7Oc-2d-Img">
                         <rect key="frame" x="149" y="530" width="78" height="22"/>
@@ -174,6 +176,9 @@
                             <color key="textColor" red="0.1535399381" green="0.91464944950000004" blue="0.87489440939999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
+                        <connections>
+                            <binding destination="sC1-b2-zLl" name="value" keyPath="selection.highestScore" id="QTb-hG-ZdO"/>
+                        </connections>
                     </textField>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="bKp-EH-D6Y">
                         <rect key="frame" x="149" y="557" width="78" height="22"/>
@@ -190,6 +195,9 @@
                             <color key="textColor" name="systemYellowColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
+                        <connections>
+                            <binding destination="sC1-b2-zLl" name="value" keyPath="selection.curScore" id="BIT-Ij-uZG"/>
+                        </connections>
                     </textField>
                 </subviews>
                 <constraints>
@@ -255,6 +263,11 @@
             <point key="canvasLocation" x="197" y="140"/>
         </window>
         <userDefaultsController representsSharedInstance="YES" id="p7U-Yn-mDo"/>
+        <objectController id="sC1-b2-zLl">
+            <connections>
+                <binding destination="-2" name="contentObject" keyPath="self.gameConfig" id="7BJ-03-d60"/>
+            </connections>
+        </objectController>
     </objects>
     <resources>
         <image name="contentBack" width="30.239999771118164" height="30.239999771118164"/>

@@ -11,8 +11,12 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface GameConfig : NSObject
-@property (nonatomic, assign) NSString* highestScore;
+@property (nonatomic, assign) float speedTime;
 -(void)writeConfig;
+-(void)updateScore;
+-(bool)addRemovedLines:(NSInteger)linesCount;
+-(bool)addCubesCubesScore:(NSInteger)cubesCount;
+-(void)initConfig;
 @end
 
 NS_ASSUME_NONNULL_END
